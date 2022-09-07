@@ -1,0 +1,68 @@
+# Used to quickly build containers for EOS S3 and Xilinx 7 without the need of configuration
+# Running 'docker-compose build' on its own is not recommended.
+services:
+  f4pga-eos-s3:
+    image: f4pga-eos-s3
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+      args:
+        FPGA_FAM: "eos-s3"
+        F4PGA_PACKAGES: "install-ql ql-eos-s3_wlcsp"
+        F4PGA_TIMESTAMP: "20220818-143856"
+        F4PGA_HASH: "24e8f73"
+
+  f4pga-xc7-all:
+    image: f4pga-xc7-all
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+      args:
+        FPGA_FAM: "xc7"
+        F4PGA_PACKAGES: "install-xc7 xc7a50t_test xc7a100t_test xc7a200t_test xc7z010_test"
+        F4PGA_TIMESTAMP: "20220818-143856"
+        F4PGA_HASH: "24e8f73"
+
+  f4pga-xc7-a50t:
+    image: f4pga-xc7-a50t
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+      args:
+        FPGA_FAM: "xc7"
+        F4PGA_PACKAGES: "install-xc7 xc7a50t_test"
+        F4PGA_TIMESTAMP: "20220818-143856"
+        F4PGA_HASH: "24e8f73"
+
+  f4pga-xc7-a100t:
+    image: f4pga-xc7-a100t
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+      args:
+        FPGA_FAM: "xc7"
+        F4PGA_PACKAGES: "install-xc7 xc7a100t_test"
+        F4PGA_TIMESTAMP: "20220818-143856"
+        F4PGA_HASH: "24e8f73"
+
+  f4pga-xc7-a200t:
+    image: f4pga-xc7-a200t
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+      args:
+        FPGA_FAM: "xc7"
+        F4PGA_PACKAGES: "install-xc7 xc7a200t_test"
+        F4PGA_TIMESTAMP: "20220818-143856"
+        F4PGA_HASH: "24e8f73"
+
+  f4pga-xc7-z010:
+    image: f4pga-xc7-z010
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+      args:
+        FPGA_FAM: "xc7"
+        F4PGA_PACKAGES: "install-xc7 xc7z010_test"
+        F4PGA_TIMESTAMP: "20220818-143856"
+        F4PGA_HASH: "24e8f73"
